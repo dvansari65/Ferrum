@@ -4,5 +4,5 @@ version = "0.1.0"
 edition = "2024"
 
 [dependencies]
-fmt = "0.1.0"
-primitive-types = "0.12"
+ark-bn254 = "0.5"
+light-poseidon = "0.4.0"

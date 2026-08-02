@@ -1,6 +1,6 @@
 use ark_bn254::Fr;
 
-use crate::layer_1::posiedon::poseiden;
+use crate::poseidon::poseiden;
 
 
 pub fn tree_compressor(values: Vec<Fr>) -> Fr {
