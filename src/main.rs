@@ -2,7 +2,7 @@ use std::io;
 
 pub mod poseidon;
 pub mod merkle;
-
+pub mod circuit;
 #[derive(Debug)]
 pub struct Values {
     pub value_1: u32,
