@@ -23,7 +23,7 @@ impl FieldElement {
         // concern: if expo becomes too large then this operation will become expensive
         let mut result = Scalar::one();
         for _ in 0..expo {
-            result += self.value;
+            result *= self.value;
         }
         Self { value: result }
     }
