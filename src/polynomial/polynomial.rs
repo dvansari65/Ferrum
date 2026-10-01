@@ -56,4 +56,16 @@ impl Polynomial {
             coefficients: result,
         }
     }
+    // this method can be replaced with fft for large degrees
+    pub fn mul(&self, rhs: &Self) -> Polynomial {
+        let vect_len = self.coefficients.len() + rhs.coefficients.len() - 1;
+
+        let mut result = vec![FieldElement::zero(); vect_len];
+        for (i, vs) in self.coefficients.iter().enumerate() {
+            for (j, vr) in rhs.coefficients.iter().enumerate() {
+                result[i + j] = vs * vr;
+            }
+        }
+        Self::new(result)
+    }
 }
