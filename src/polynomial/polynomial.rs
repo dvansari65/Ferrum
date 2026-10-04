@@ -1,9 +1,8 @@
-
 use bls12_381::Scalar;
 
 use crate::state::FieldElement;
 
-#[derive(Debug,Clone)]
+#[derive(Debug, Clone)]
 pub struct Polynomial {
     pub coefficients: Vec<FieldElement>,
 }
@@ -67,20 +66,18 @@ impl Polynomial {
         let mut result = vec![FieldElement::zero(); vect_len];
         for (i, vs) in self.coefficients.iter().enumerate() {
             for (j, vr) in rhs.coefficients.iter().enumerate() {
-                result[i + j] = result[i+j] +  (vs * vr);
+                result[i + j] = result[i + j] + (vs * vr);
             }
         }
         Self::new(result)
     }
     pub fn degree(&self) -> Option<usize> {
-       self.coefficients
+        self.coefficients
             .iter()
             .rposition(|c| *c != FieldElement::zero())
     }
-    pub fn trim(&mut self){
-       let keep = self.degree().map(|d| d + 1).unwrap_or(1);
-       self.coefficients.truncate(keep);
+    pub fn trim(&mut self) {
+        let keep = self.degree().map(|d| d + 1).unwrap_or(1);
+        self.coefficients.truncate(keep);
     }
 }
-
-

@@ -66,4 +66,10 @@ mod tests {
         let expexted = vec![fe(10),-fe(6),fe(2)];
         assert_eq!(subtraction.coefficients,expexted)
     }
+    #[test]
+    fn position_of_non_zero_coefficients(){
+        let a = Polynomial::new(vec![fe(1),fe(5),fe(10),fe(0),fe(0),fe(0)]);
+        let expected = a.degree().unwrap();
+        assert_eq!(expected,2)
+    }
 }
